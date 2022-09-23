@@ -1,57 +1,75 @@
 package testCases;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeTest;
+import org.testng.Assert;
 import org.testng.annotations.*;
-
-
-import io.github.bonigarcia.wdm.WebDriverManager;
-
 import POM.LoginPom;
 import POM.Configuration;
 
 public class Login {
 	LoginPom pom;
 	public WebDriver driver;
-	
-	@BeforeTest
-	public void setup() {
-		driver=Configuration.browser();
+
+	@BeforeMethod
+	public void setup() throws InterruptedException {
+		driver =Configuration.browser();
 		driver.get(Configuration.WebUrl());
-	}
-	
-	@Test(priority=1,description="This is test for successfull Login")
-	public void testSuccessfullLogin() {
-		System.out.print("I am login");
+		Thread.sleep(1000);
 		
 	}
-//	public static void main(String[] args) {
-//		WebDriverManager.chromedriver().setup();
-//		ChromeDriver driver=new ChromeDriver();
-//		String URL = "http://automationpractice.com/index.php";
-//
-//		// Open URL and Maximize browser window
-//		driver.get(URL);
-//		driver.manage().window().maximize();
-//		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
-//
-//		// Click on Sign in
-//		driver.findElement(By.linkText("Sign in")).click();
-//		// Login
-//		driver.findElement(By.id("email")).sendKeys("mansur@test.com");
-//		driver.findElement(By.id("passwd")).sendKeys("PKR@PKR");
-//		driver.findElement(By.id("SubmitLogin")).click();
-//		String userText = driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a")).getText();
-//
-//		// succesfull login
-//		if (userText.contains("Vsoft")) {
-//			System.out.println("Login sucessfull");
-//		} else {
-//			System.out.println("Login Failed");
-//		}
-//	}
+	@AfterMethod
+	public void end() {
+		driver.quit();
+	}
+	
+
+	@Test(priority = 1, description = "This is test for successfull Login")
+	public void testSuccessfullLogin() {
+		pom = new LoginPom(driver);
+		pom.clickSignIn();
+		pom.LoginToWeb(pom.email,pom.pasword);
+		Assert.assertTrue(pom.getUsername().contains("Test User Vsoft"));
+
+	}
+	
+	@Test(priority=2,description="This is test for invalid email")
+	public void invalidEmail() {
+		pom = new LoginPom(driver);
+		pom.clickSignIn();
+		pom.LoginToWeb(LoginPom.email+"jsadh", pom.pasword);
+		String expected="Authentication failed.";
+		String actual=driver.findElement(By.xpath("//li[contains(text(),'Authentication failed.')]")).getText();
+		Assert.assertEquals(actual, expected);
+		
+	}
+	@Test(priority=3,description="This is test for invalid password")
+	public void invalidPassword() {
+		pom = new LoginPom(driver);
+		pom.clickSignIn();
+		pom.LoginToWeb(pom.email, pom.pasword+"asd");
+		String expected="Authentication failed.";
+		String actual=driver.findElement(By.xpath("//li[contains(text(),'Authentication failed.')]")).getText();
+		Assert.assertEquals(actual, expected);
+	}
+	@Test(priority=4,description="This is test for empty email")
+	public void emptyEmail() {
+		pom = new LoginPom(driver);
+		pom.clickSignIn();
+		pom.LoginToWeb(" ",pom.pasword);
+		String expected="An email address required.";
+		String actual=driver.findElement(By.xpath("//li[contains(text(),'An email address required.')]")).getText();
+		Assert.assertEquals(actual, expected);
+	}
+	@Test(priority=5,description="This is test for empty password")
+	public void emptyPassword() {
+		pom = new LoginPom(driver);
+		pom.clickSignIn();
+		pom.LoginToWeb(pom.email, " ");
+		String expected="Password is required.";
+		String actual=driver.findElement(By.xpath("//li[contains(text(),'Password is required.')]")).getText();
+		Assert.assertEquals(actual, expected);
+	}
+
+
 }
