@@ -5,11 +5,21 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPom {
 
-	public WebDriver driver = Configuration.browser();
+	public WebDriver driver;
 
 	By username = By.id("email");
 	By password = By.id("passwd");
 	By login = By.name("SubmitLogin");
+	By userTxt = By.cssSelector("a[href*=automationpractice]");
+	By signIn = By.linkText("Sign in");
+
+	public LoginPom(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	public void clickSignIn() {
+		driver.findElement(signIn).click();
+	}
 
 	public void setUserName(String strUsername) {
 
@@ -20,16 +30,20 @@ public class LoginPom {
 
 		driver.findElement(password).sendKeys(pwd);
 	}
-	
+
 	public void clickLogin() {
 		driver.findElement(login).click();
 	}
-	
-	public void LoginToWeb(String strUsername,String strPassword ) {
+
+	public String getUsername() {
+		return driver.findElement(userTxt).getText();
+	}
+
+	public void LoginToWeb(String strUsername, String strPassword) {
 		this.setUserName(strUsername);
 		this.setPassword(strPassword);
 		this.clickLogin();
-		
+
 	}
 
 }
