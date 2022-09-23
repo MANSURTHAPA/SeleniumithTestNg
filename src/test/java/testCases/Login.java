@@ -9,6 +9,7 @@ import POM.Configuration;
 
 public class Login {
 	LoginPom pom;
+	Configuration conf=new Configuration();
 	public WebDriver driver;
 
 	@BeforeMethod
@@ -22,12 +23,13 @@ public class Login {
 	public void end() {
 		driver.quit();
 	}
+	
 
 	@Test(priority = 1, description = "This is test for successfull Login")
 	public void testSuccessfullLogin() {
 		pom = new LoginPom(driver);
 		pom.clickSignIn();
-		pom.LoginToWeb("mansur@test.com", "PKR@PKR");
+		pom.LoginToWeb(conf.email,conf.password);
 		Assert.assertTrue(pom.getUsername().contains("Vsoft"));
 
 	}
@@ -36,7 +38,7 @@ public class Login {
 	public void invalidEmail() {
 		pom = new LoginPom(driver);
 		pom.clickSignIn();
-		pom.LoginToWeb("mansurhhh@test.com", "PKR@PKR");
+		pom.LoginToWeb(conf.email+"jsadh", conf.password);
 		String expected="Authentication failed.";
 		String actual=driver.findElement(By.xpath("//li[contains(text(),'Authentication failed.')]")).getText();
 		Assert.assertEquals(actual, expected);
@@ -46,7 +48,7 @@ public class Login {
 	public void invalidPassword() {
 		pom = new LoginPom(driver);
 		pom.clickSignIn();
-		pom.LoginToWeb("mansur@test.com", "PKR@PKRasg");
+		pom.LoginToWeb(conf.email, conf.password+"asd");
 		String expected="Authentication failed.";
 		String actual=driver.findElement(By.xpath("//li[contains(text(),'Authentication failed.')]")).getText();
 		Assert.assertEquals(actual, expected);
@@ -55,7 +57,7 @@ public class Login {
 	public void emptyEmail() {
 		pom = new LoginPom(driver);
 		pom.clickSignIn();
-		pom.LoginToWeb(" ", "PKR@PKR");
+		pom.LoginToWeb(" ",conf.password);
 		String expected="An email address required.";
 		String actual=driver.findElement(By.xpath("//li[contains(text(),'An email address required.')]")).getText();
 		Assert.assertEquals(actual, expected);
@@ -64,7 +66,7 @@ public class Login {
 	public void emptyPassword() {
 		pom = new LoginPom(driver);
 		pom.clickSignIn();
-		pom.LoginToWeb("mansur@test.com", " ");
+		pom.LoginToWeb(conf.email, " ");
 		String expected="Password is required.";
 		String actual=driver.findElement(By.xpath("//li[contains(text(),'Password is required.')]")).getText();
 		Assert.assertEquals(actual, expected);

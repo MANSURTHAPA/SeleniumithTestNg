@@ -9,12 +9,14 @@ public class Configuration {
 
 	public static WebDriver driver;
 	public static String Url;
+	public static String email="mansur@test.com";
+	public static String password="PKR@PKR";
 
 	public static WebDriver browser() {
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options=new ChromeOptions();
 		options.addArguments("headless");
-		return driver = new ChromeDriver(options);
+		return driver = new ChromeDriver();
 
 	}
 
