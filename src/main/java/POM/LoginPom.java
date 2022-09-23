@@ -9,6 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPom {
 
 	public WebDriver driver;
+	public static String email="mansur@test.com";
+	public static String pasword="PKR@PKR";
 	
 	@FindBy(id="email")
 	WebElement username;

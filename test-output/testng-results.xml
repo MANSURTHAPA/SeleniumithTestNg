@@ -2,20 +2,20 @@
 <testng-results ignored="4" total="5" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-09-23T14:54:14 NPT" name="Default suite" finished-at="2022-09-23T14:54:38 NPT" duration-ms="24121">
+  <suite started-at="2022-09-23T15:09:24 NPT" name="Default suite" finished-at="2022-09-23T15:10:09 NPT" duration-ms="45079">
     <groups>
     </groups>
-    <test started-at="2022-09-23T14:54:14 NPT" name="Default test" finished-at="2022-09-23T14:54:38 NPT" duration-ms="24121">
+    <test started-at="2022-09-23T15:09:24 NPT" name="Default test" finished-at="2022-09-23T15:10:09 NPT" duration-ms="45079">
       <class name="testCases.Login">
-        <test-method is-config="true" signature="setup()[pri:0, instance:testCases.Login@564fabc8]" started-at="2022-09-23T14:54:14 NPT" name="setup" finished-at="2022-09-23T14:54:28 NPT" duration-ms="13790" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:testCases.Login@478190fc]" started-at="2022-09-23T15:09:24 NPT" name="setup" finished-at="2022-09-23T15:09:43 NPT" duration-ms="18962" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="invalidEmail()[pri:2, instance:testCases.Login@564fabc8]" started-at="2022-09-23T14:54:28 NPT" name="invalidEmail" description="This is test for invalid email" finished-at="2022-09-23T14:54:38 NPT" duration-ms="10187" status="PASS">
+        <test-method signature="testSuccessfullLogin()[pri:1, instance:testCases.Login@478190fc]" started-at="2022-09-23T15:09:43 NPT" name="testSuccessfullLogin" description="This is test for successfull Login" finished-at="2022-09-23T15:10:09 NPT" duration-ms="25974" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- invalidEmail -->
-        <test-method is-config="true" signature="end()[pri:0, instance:testCases.Login@564fabc8]" started-at="2022-09-23T14:54:38 NPT" name="end" finished-at="2022-09-23T14:54:38 NPT" duration-ms="118" status="PASS">
+        </test-method> <!-- testSuccessfullLogin -->
+        <test-method is-config="true" signature="end()[pri:0, instance:testCases.Login@478190fc]" started-at="2022-09-23T15:10:09 NPT" name="end" finished-at="2022-09-23T15:10:09 NPT" duration-ms="115" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end -->

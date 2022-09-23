@@ -9,12 +9,11 @@ import POM.Configuration;
 
 public class Login {
 	LoginPom pom;
-	Configuration conf=new Configuration();
 	public WebDriver driver;
 
 	@BeforeMethod
 	public void setup() throws InterruptedException {
-		driver = Configuration.browser();
+		driver =Configuration.browser();
 		driver.get(Configuration.WebUrl());
 		Thread.sleep(1000);
 		
@@ -29,8 +28,8 @@ public class Login {
 	public void testSuccessfullLogin() {
 		pom = new LoginPom(driver);
 		pom.clickSignIn();
-		pom.LoginToWeb(conf.email,conf.password);
-		Assert.assertTrue(pom.getUsername().contains("Vsoft"));
+		pom.LoginToWeb(pom.email,pom.pasword);
+		Assert.assertTrue(pom.getUsername().contains("Test User Vsoft"));
 
 	}
 	
@@ -38,7 +37,7 @@ public class Login {
 	public void invalidEmail() {
 		pom = new LoginPom(driver);
 		pom.clickSignIn();
-		pom.LoginToWeb(conf.email+"jsadh", conf.password);
+		pom.LoginToWeb(LoginPom.email+"jsadh", pom.pasword);
 		String expected="Authentication failed.";
 		String actual=driver.findElement(By.xpath("//li[contains(text(),'Authentication failed.')]")).getText();
 		Assert.assertEquals(actual, expected);
@@ -48,7 +47,7 @@ public class Login {
 	public void invalidPassword() {
 		pom = new LoginPom(driver);
 		pom.clickSignIn();
-		pom.LoginToWeb(conf.email, conf.password+"asd");
+		pom.LoginToWeb(pom.email, pom.pasword+"asd");
 		String expected="Authentication failed.";
 		String actual=driver.findElement(By.xpath("//li[contains(text(),'Authentication failed.')]")).getText();
 		Assert.assertEquals(actual, expected);
@@ -57,7 +56,7 @@ public class Login {
 	public void emptyEmail() {
 		pom = new LoginPom(driver);
 		pom.clickSignIn();
-		pom.LoginToWeb(" ",conf.password);
+		pom.LoginToWeb(" ",pom.pasword);
 		String expected="An email address required.";
 		String actual=driver.findElement(By.xpath("//li[contains(text(),'An email address required.')]")).getText();
 		Assert.assertEquals(actual, expected);
@@ -66,7 +65,7 @@ public class Login {
 	public void emptyPassword() {
 		pom = new LoginPom(driver);
 		pom.clickSignIn();
-		pom.LoginToWeb(conf.email, " ");
+		pom.LoginToWeb(pom.email, " ");
 		String expected="Password is required.";
 		String actual=driver.findElement(By.xpath("//li[contains(text(),'Password is required.')]")).getText();
 		Assert.assertEquals(actual, expected);
