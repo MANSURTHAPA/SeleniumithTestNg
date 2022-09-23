@@ -12,14 +12,15 @@ public class Login {
 	public WebDriver driver;
 
 	@BeforeMethod
-	public void setup() {
+	public void setup() throws InterruptedException {
 		driver = Configuration.browser();
 		driver.get(Configuration.WebUrl());
+		Thread.sleep(1000);
 		
 	}
 	@AfterMethod
 	public void end() {
-		driver.close();
+		driver.quit();
 	}
 
 	@Test(priority = 1, description = "This is test for successfull Login")

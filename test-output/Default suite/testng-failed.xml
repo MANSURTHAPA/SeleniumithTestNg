@@ -5,8 +5,8 @@
     <classes>
       <class name="testCases.Login">
         <methods>
+          <include name="testSuccessfullLogin"/>
           <include name="setup"/>
-          <include name="emptyPassword"/>
           <include name="end"/>
         </methods>
       </class> <!-- testCases.Login -->

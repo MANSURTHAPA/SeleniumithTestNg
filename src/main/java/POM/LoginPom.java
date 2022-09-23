@@ -2,41 +2,51 @@ package POM;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginPom {
 
 	public WebDriver driver;
+	
+	@FindBy(id="email")
+	WebElement username;
+	@FindBy(id="passwd")
+	WebElement password;
+	@FindBy(name="SubmitLogin")
+	WebElement login;
+	@FindBy(xpath="//span[contains(text(),'Test User Vsoft')]")
+	WebElement userTxt;
+	@FindBy(linkText="Sign in")
+	WebElement signIn;
 
-	By username = By.id("email");
-	By password = By.id("passwd");
-	By login = By.name("SubmitLogin");
-	By userTxt = By.cssSelector("a[href*=automationpractice]");
-	By signIn = By.linkText("Sign in");
 
 	public LoginPom(WebDriver driver) {
 		this.driver = driver;
+		 PageFactory.initElements(driver, this);
 	}
 
 	public void clickSignIn() {
-		driver.findElement(signIn).click();
+		signIn.click();
 	}
 
 	public void setUserName(String strUsername) {
 
-		driver.findElement(username).sendKeys(strUsername);
+		username.sendKeys(strUsername);
 	}
 
 	public void setPassword(String pwd) {
 
-		driver.findElement(password).sendKeys(pwd);
+		password.sendKeys(pwd);
 	}
 
 	public void clickLogin() {
-		driver.findElement(login).click();
+		login.click();
 	}
 
 	public String getUsername() {
-		return driver.findElement(userTxt).getText();
+		return userTxt.getText();
 	}
 
 	public void LoginToWeb(String strUsername, String strPassword) {

@@ -2,7 +2,7 @@ package POM;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import org.openqa.selenium.chrome.ChromeOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Configuration {
@@ -12,7 +12,9 @@ public class Configuration {
 
 	public static WebDriver browser() {
 		WebDriverManager.chromedriver().setup();
-		return driver = new ChromeDriver();
+		ChromeOptions options=new ChromeOptions();
+		options.addArguments("headless");
+		return driver = new ChromeDriver(options);
 
 	}
 
