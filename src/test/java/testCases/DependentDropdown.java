@@ -25,7 +25,7 @@ import org.openqa.selenium.WebElement;
 public class DependentDropdown {
 
 	@Test
-	public void verifyCascadingDropdown() throws StreamReadException, DatabindException, IOException {
+	public void verifyCascadingDropdown() throws StreamReadException, DatabindException, IOException, InterruptedException {
 		WebDriverManager.chromedriver().setup();
 		ChromeDriver driver=new ChromeDriver();
 		
@@ -48,7 +48,24 @@ public class DependentDropdown {
 		System.out.print("Expected Subjects :" + expectedSubject);
 		Assert.assertEquals(actualSub, expectedSubject);
 		
+		selectDropDownSub.selectByValue("Front-end");
+		Thread.sleep(5000);
 		
+		WebElement dropdownTopic=driver.findElement(By.id("topic"));
+		Select selectDropDownTopic=new Select(dropdownTopic);
+		List<String> actualTopic=new ArrayList<String>();
+		actualTopic=selectDropDownTopic.getOptions().stream().map(ele -> ele.getText()).collect(Collectors.toList());
+		actualTopic.remove(0);
+		System.out.print("Actual Subjects :" + actualTopic);
+		
+		Object frontEndvalue=expectedjsonDataMap.get("Front-end");
+		Map<String,Object> frontEndMap=(Map<String,Object>) frontEndvalue;
+		
+		Set<String> expectedTopicSet=frontEndMap.keySet();
+		List<String> expectedTopic=new ArrayList<String>();
+		expectedTopic.addAll(expectedTopicSet);
+		System.out.print("Expected Subjects :" + expectedTopic);
+		Assert.assertEquals(actualTopic, expectedTopic);
 		
 		
 		
