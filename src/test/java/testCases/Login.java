@@ -15,6 +15,7 @@ public class Login {
 	public void setup() throws InterruptedException {
 		driver =Configuration.browser();
 		driver.get(Configuration.WebUrl());
+		pom = new LoginPom(driver);
 		Thread.sleep(1000);
 		
 	}
@@ -26,7 +27,7 @@ public class Login {
 
 	@Test(priority = 1, description = "This is test for successfull Login")
 	public void testSuccessfullLogin() {
-		pom = new LoginPom(driver);
+		
 		pom.clickSignIn();
 		pom.LoginToWeb(pom.email,pom.pasword);
 		Assert.assertTrue(pom.getUsername().contains("Test User Vsoft"));
@@ -35,7 +36,7 @@ public class Login {
 	
 	@Test(priority=2,description="This is test for invalid email")
 	public void invalidEmail() {
-		pom = new LoginPom(driver);
+	
 		pom.clickSignIn();
 		pom.LoginToWeb(LoginPom.email+"jsadh", pom.pasword);
 		String expected="Authentication failed.";
@@ -45,7 +46,7 @@ public class Login {
 	}
 	@Test(priority=3,description="This is test for invalid password")
 	public void invalidPassword() {
-		pom = new LoginPom(driver);
+		
 		pom.clickSignIn();
 		pom.LoginToWeb(pom.email, pom.pasword+"asd");
 		String expected="Authentication failed.";
@@ -54,7 +55,7 @@ public class Login {
 	}
 	@Test(priority=4,description="This is test for empty email")
 	public void emptyEmail() {
-		pom = new LoginPom(driver);
+		
 		pom.clickSignIn();
 		pom.LoginToWeb(" ",pom.pasword);
 		String expected="An email address required.";
@@ -63,7 +64,7 @@ public class Login {
 	}
 	@Test(priority=5,description="This is test for empty password")
 	public void emptyPassword() {
-		pom = new LoginPom(driver);
+		
 		pom.clickSignIn();
 		pom.LoginToWeb(pom.email, " ");
 		String expected="Password is required.";

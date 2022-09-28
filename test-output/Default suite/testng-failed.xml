@@ -5,9 +5,9 @@
     <classes>
       <class name="testCases.DependentDropdown">
         <methods>
-          <include name="FrontEndVerification"/>
-          <include name="startUp"/>
+          <include name="verifyChapterList"/>
           <include name="end"/>
+          <include name="startUp"/>
         </methods>
       </class> <!-- testCases.DependentDropdown -->
     </classes>

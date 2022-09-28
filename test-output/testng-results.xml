@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-09-28T13:19:03 NPT" name="Default suite" finished-at="2022-09-28T13:19:12 NPT" duration-ms="8294">
+  <suite started-at="2022-09-28T14:33:24 NPT" name="Default suite" finished-at="2022-09-28T14:33:33 NPT" duration-ms="8398">
     <groups>
     </groups>
-    <test started-at="2022-09-28T13:19:03 NPT" name="Default test" finished-at="2022-09-28T13:19:12 NPT" duration-ms="8294">
+    <test started-at="2022-09-28T14:33:24 NPT" name="Default test" finished-at="2022-09-28T14:33:33 NPT" duration-ms="8398">
       <class name="testCases.DependentDropdown">
-        <test-method is-config="true" signature="startUp()[pri:0, instance:testCases.DependentDropdown@77847718]" started-at="2022-09-28T13:19:03 NPT" name="startUp" finished-at="2022-09-28T13:19:06 NPT" duration-ms="2593" status="PASS">
+        <test-method is-config="true" signature="startUp()[pri:0, instance:testCases.DependentDropdown@57a3af25]" started-at="2022-09-28T14:33:24 NPT" name="startUp" finished-at="2022-09-28T14:33:27 NPT" duration-ms="2633" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startUp -->
-        <test-method signature="FrontEndVerification()[pri:0, instance:testCases.DependentDropdown@77847718]" started-at="2022-09-28T13:19:06 NPT" name="FrontEndVerification" finished-at="2022-09-28T13:19:11 NPT" duration-ms="5351" status="PASS">
+        <test-method signature="verifyChapterList()[pri:0, instance:testCases.DependentDropdown@57a3af25]" started-at="2022-09-28T14:33:27 NPT" name="verifyChapterList" finished-at="2022-09-28T14:33:32 NPT" duration-ms="5414" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- FrontEndVerification -->
-        <test-method is-config="true" signature="end()[pri:0, instance:testCases.DependentDropdown@77847718]" started-at="2022-09-28T13:19:11 NPT" name="end" finished-at="2022-09-28T13:19:12 NPT" duration-ms="322" status="PASS">
+        </test-method> <!-- verifyChapterList -->
+        <test-method is-config="true" signature="end()[pri:0, instance:testCases.DependentDropdown@57a3af25]" started-at="2022-09-28T14:33:32 NPT" name="end" finished-at="2022-09-28T14:33:33 NPT" duration-ms="321" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end -->

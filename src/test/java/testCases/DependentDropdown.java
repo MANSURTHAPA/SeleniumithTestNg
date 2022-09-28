@@ -36,6 +36,7 @@ public class DependentDropdown {
 	public void startUp() throws InterruptedException {
 		driver = Configuration.browser();
 		driver.get(Configuration.file());
+		depPOm = new DependentdropdownPOM(driver);
 		Thread.sleep(1000);
 	}
 
@@ -45,18 +46,27 @@ public class DependentDropdown {
 	}
 
 	@Test
-	public void verifyCascadingDropdown()throws StreamReadException, DatabindException, IOException, InterruptedException {
-	
-		depPOm = new DependentdropdownPOM(driver);		
+	public void verifySubjectList()throws StreamReadException, DatabindException, IOException, InterruptedException {
+			
 		Assert.assertEquals(depPOm.actualsubList(), depPOm.expectedsubList());
 	}
 	@Test
-	public void FrontEndVerification()throws InterruptedException, StreamReadException, DatabindException, IOException {
-		depPOm = new DependentdropdownPOM(driver);
+	public void verifyTopicList()throws InterruptedException, StreamReadException, DatabindException, IOException {
+		
 		depPOm.selectSub().selectByValue("Back-end");
 		Thread.sleep(5000);
+		//expected function sending subject 
+		Assert.assertEquals(depPOm.actualTopList(), depPOm.expectedTopList("Back-end"));
 
-		Assert.assertEquals(depPOm.actualTopList(), depPOm.expectedTopList());
-
+	}
+	@Test
+	public void verifyChapterList() throws InterruptedException, StreamReadException, DatabindException, IOException {
+		//these two functions select the required subject and topic
+		depPOm.selectSub().selectByValue("Front-end");
+		depPOm.selectTopic().selectByValue("HTML");
+		Thread.sleep(5000);
+		//expected function is sending the subject and topic to get chapter list
+		Assert.assertEquals(depPOm.actualChapterList(), depPOm.expectedChapterList("Front-end","HTML"));
+		
 	}
 }
