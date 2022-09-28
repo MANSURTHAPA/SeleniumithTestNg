@@ -2,15 +2,23 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-09-26T12:36:31 NPT" name="Default suite" finished-at="2022-09-26T12:36:38 NPT" duration-ms="6818">
+  <suite started-at="2022-09-28T13:19:03 NPT" name="Default suite" finished-at="2022-09-28T13:19:12 NPT" duration-ms="8294">
     <groups>
     </groups>
-    <test started-at="2022-09-26T12:36:31 NPT" name="Default test" finished-at="2022-09-26T12:36:38 NPT" duration-ms="6818">
+    <test started-at="2022-09-28T13:19:03 NPT" name="Default test" finished-at="2022-09-28T13:19:12 NPT" duration-ms="8294">
       <class name="testCases.DependentDropdown">
-        <test-method signature="verifyCascadingDropdown()[pri:0, instance:testCases.DependentDropdown@8f4ea7c]" started-at="2022-09-26T12:36:31 NPT" name="verifyCascadingDropdown" finished-at="2022-09-26T12:36:38 NPT" duration-ms="6784" status="PASS">
+        <test-method is-config="true" signature="startUp()[pri:0, instance:testCases.DependentDropdown@77847718]" started-at="2022-09-28T13:19:03 NPT" name="startUp" finished-at="2022-09-28T13:19:06 NPT" duration-ms="2593" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyCascadingDropdown -->
+        </test-method> <!-- startUp -->
+        <test-method signature="FrontEndVerification()[pri:0, instance:testCases.DependentDropdown@77847718]" started-at="2022-09-28T13:19:06 NPT" name="FrontEndVerification" finished-at="2022-09-28T13:19:11 NPT" duration-ms="5351" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- FrontEndVerification -->
+        <test-method is-config="true" signature="end()[pri:0, instance:testCases.DependentDropdown@77847718]" started-at="2022-09-28T13:19:11 NPT" name="end" finished-at="2022-09-28T13:19:12 NPT" duration-ms="322" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- end -->
       </class> <!-- testCases.DependentDropdown -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
