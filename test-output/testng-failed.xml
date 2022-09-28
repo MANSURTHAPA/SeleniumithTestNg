@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.Login">
+      <class name="testCases.DependentDropdown">
         <methods>
-          <include name="testSuccessfullLogin"/>
-          <include name="setup"/>
-          <include name="end"/>
+          <include name="verifyCascadingDropdown"/>
         </methods>
-      </class> <!-- testCases.Login -->
+      </class> <!-- testCases.DependentDropdown -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
