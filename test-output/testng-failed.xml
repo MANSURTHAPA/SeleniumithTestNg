@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.DependentDropdown">
+      <class name="testCases.Datepicker">
         <methods>
-          <include name="verifyChapterList"/>
-          <include name="end"/>
-          <include name="startUp"/>
+          <include name="selectDate"/>
         </methods>
-      </class> <!-- testCases.DependentDropdown -->
+      </class> <!-- testCases.Datepicker -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

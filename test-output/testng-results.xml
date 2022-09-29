@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-09-28T14:33:24 NPT" name="Default suite" finished-at="2022-09-28T14:33:33 NPT" duration-ms="8398">
+  <suite started-at="2022-09-29T12:15:00 NPT" name="Default suite" finished-at="2022-09-29T12:15:06 NPT" duration-ms="6375">
     <groups>
     </groups>
-    <test started-at="2022-09-28T14:33:24 NPT" name="Default test" finished-at="2022-09-28T14:33:33 NPT" duration-ms="8398">
-      <class name="testCases.DependentDropdown">
-        <test-method is-config="true" signature="startUp()[pri:0, instance:testCases.DependentDropdown@57a3af25]" started-at="2022-09-28T14:33:24 NPT" name="startUp" finished-at="2022-09-28T14:33:27 NPT" duration-ms="2633" status="PASS">
+    <test started-at="2022-09-29T12:15:00 NPT" name="Default test" finished-at="2022-09-29T12:15:06 NPT" duration-ms="6375">
+      <class name="testCases.Datepicker">
+        <test-method signature="selectDate()[pri:0, instance:testCases.Datepicker@222545dc]" started-at="2022-09-29T12:15:00 NPT" name="selectDate" finished-at="2022-09-29T12:15:06 NPT" duration-ms="6336" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startUp -->
-        <test-method signature="verifyChapterList()[pri:0, instance:testCases.DependentDropdown@57a3af25]" started-at="2022-09-28T14:33:27 NPT" name="verifyChapterList" finished-at="2022-09-28T14:33:32 NPT" duration-ms="5414" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyChapterList -->
-        <test-method is-config="true" signature="end()[pri:0, instance:testCases.DependentDropdown@57a3af25]" started-at="2022-09-28T14:33:32 NPT" name="end" finished-at="2022-09-28T14:33:33 NPT" duration-ms="321" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- end -->
-      </class> <!-- testCases.DependentDropdown -->
+        </test-method> <!-- selectDate -->
+      </class> <!-- testCases.Datepicker -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
