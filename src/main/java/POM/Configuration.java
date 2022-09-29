@@ -23,4 +23,9 @@ public class Configuration {
 		Url = "http://automationpractice.com/index.php";
 		return Url;
 	}
+	public static String file() {
+		Url="file:///C:\\Users\\Mansur\\eclipse-workspace\\SeleniumPractice\\src\\main\\resources\\html\\Cascade.html";
+		return Url;
+	
+	}
 }
